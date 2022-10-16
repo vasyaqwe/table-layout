@@ -1,2 +1,2 @@
-This a fun little challenge to test my layout skills, I made use of modern css to create a responsive teble layout, and modern javascript to create a dropdown functionality.
+This a fun little challenge to test my layout skills, I made use of modern css to create a responsive table layout, and modern javascript to create a dropdown functionality.
 Thanks to Gary Simon for the designs - https://www.youtube.com/c/DesignCourse
