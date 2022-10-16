@@ -1,0 +1,337 @@
+:root {
+    --clr-neutral-500: #565656;
+    --clr-neutral-400: #686868;
+    --clr-neutral-100: #F4F4F4;
+    --clr-accent: #008AD8;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Remove default margin */
+* {
+    margin: 0;
+    padding: 0;
+    font: inherit;
+}
+
+
+ul {
+    padding: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'],
+ul {
+    list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    font-family: 'Lexend Deca', sans-serif;
+    background-color: var(--clr-neutral-100);
+    padding-bottom: 4em;
+}
+
+a {
+    text-decoration-skip-ink: auto;
+    text-decoration: none;
+    color: currentColor;
+}
+
+/* Make images easier to work with */
+img,
+picture,
+svg {
+    max-width: 100%;
+    display: block;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+input {
+    width: 100%;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+.container {
+    margin-top: min(7vw, 6rem);
+    width: min(90%, 77.25em);
+    margin-inline: auto;
+}
+
+h1 {
+    font-size: 2rem;
+    line-height: 1.5;
+}
+
+.details {
+    color: var(--clr-accent);
+    font-size: 1.375rem;
+}
+
+.details:hover span {
+    border-bottom: 2px solid var(--clr-accent);
+}
+
+.btn {
+    cursor: pointer;
+    border: 0;
+    background-color: transparent;
+    width: 25px;
+    aspect-ratio: 1;
+    background-position: center;
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+.dropdown-btn {
+    background-image: url('./dropdown-btn.svg');
+}
+
+.favorite-btn:hover,
+.dropdown-btn:hover {
+    opacity: .6;
+}
+
+.favorite-btn {
+    justify-self: center;
+    background-image: url('./heart.svg');
+}
+
+.favorite-btn[aria-checked=true] {
+    background-image: url('./heart-filled.svg');
+}
+
+.input-dropdown {
+    display: flex;
+    align-items: center;
+    gap: 1.3rem;
+    position: relative;
+}
+
+input[type="text"] {
+    border: 0;
+    border-radius: 100vmax;
+    background-color: #fff;
+    min-height: 40px;
+    padding-inline: 1em;
+    background-image: url('./search.svg');
+    background-repeat: no-repeat;
+    background-position: calc(100% - 1em) center;
+}
+
+input[type="text"]:focus {
+    outline: 2px solid var(--clr-accent);
+}
+
+.primary-header {
+    padding-inline: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.primary-header p {
+    font-size: 1.125rem;
+    color: var(--clr-neutral-500);
+}
+
+.table-header {
+    min-height: 55px;
+    border-radius: 6px;
+    display: none;
+    background-color: var(--clr-accent);
+    font-size: 0.875rem;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+@media(min-width: 50em) {
+    .table-header {
+        display: grid;
+        grid-template-columns:
+            minmax(300px, 500px) minmax(220px, 367px) minmax(110px, 230px) minmax(50px, 120px);
+        align-items: center;
+        padding-inline: 1.35em;
+    }
+
+    .table-header p:last-child {
+        justify-self: center;
+    }
+
+    .primary-header {
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: space-between;
+    }
+}
+
+.table {
+    margin-top: 4rem;
+}
+
+.table-container {
+    display: grid;
+    gap: 1.35rem;
+}
+
+.table-container .row {
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 1fr 60px;
+    row-gap: 1.3rem;
+    border-radius: 6px;
+    padding: min(5vw, 1.5em)
+}
+
+.location {
+    font-size: 1.125rem;
+    color: var(--clr-neutral-400);
+}
+
+.price {
+    font-size: 1.5rem;
+}
+
+@media(max-width: 50em) {
+    .location {
+        grid-column: 1;
+
+    }
+
+    .price {
+        grid-column: 1;
+    }
+
+    .favorite-btn {
+        justify-self: end;
+    }
+
+    h2 {
+        grid-column: 1/3;
+    }
+}
+
+.table-container .row:hover {
+    background-color: #fff;
+}
+
+
+@media(min-width: 50em) {
+    .table-container {
+        margin-top: 1.9rem;
+    }
+
+    .table-container .row {
+        grid-template-columns:
+            minmax(300px, 500px) minmax(220px, 367px) minmax(110px, 230px) minmax(50px, 120px);
+    }
+
+}
+
+/* dropdown */
+.dropdown {
+    font-size: 1.125rem;
+    position: absolute;
+    top: 50px;
+    right: 8px;
+    width: 257px;
+    border-radius: 6px;
+    background-color: #fff;
+    padding: 1.9em;
+    display: grid;
+    gap: 1rem;
+    box-shadow: 11px 18px 54px 0px hsla(0, 0%, 0%, 0.11);
+    clip-path: circle(0% at 100% 0%);
+    transition: clip-path .3s ease-in-out;
+}
+
+.dropdown[data-visible] {
+    clip-path: circle(100% at 50% 50%);
+
+}
+
+.dropdown li label {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+input[type=checkbox]:checked,
+input[type=checkbox]:not(:checked) {
+    font-size: 1rem;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    appearance: none;
+    -webkit-appearance: none;
+    width: 15px;
+    aspect-ratio: 1;
+    border: 0.15em solid #000;
+    border-radius: 0.15em;
+}
+
+input[type=checkbox]:hover {
+    opacity: .7;
+}
+
+.checkbox-label {
+    cursor: pointer;
+}
+
+input[type=checkbox]::before {
+    content: "";
+    width: 0.65em;
+    height: 0.65em;
+    display: inline-block;
+    opacity: 0;
+    transform-origin: bottom left;
+    background-color: #000;
+    clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+}
+
+input[type="checkbox"]:checked {
+    background-color: #000;
+
+}
+
+input[type="checkbox"]:checked::before {
+    background-color: #fff;
+    opacity: 1;
+}
